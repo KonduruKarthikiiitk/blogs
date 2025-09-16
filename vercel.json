@@ -24,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/web/build/$1"
+      "dest": "/web/build/index.html"
     }
   ],
   "env": {
