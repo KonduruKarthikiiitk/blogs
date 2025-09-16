@@ -147,24 +147,24 @@ const BlogPost = () => {
           "@type": "Person",
           name: `${post.author?.firstName} ${post.author?.lastName}`,
           url: `${
-            process.env.REACT_APP_BASE_URL || "http://localhost:3000"
+            process.env.REACT_APP_BASE_URL || window.location.origin
           }/profile/${post.author?._id}`,
         },
         publisher: {
           "@type": "Organization",
           name: "Blog Platform",
-          url: process.env.REACT_APP_BASE_URL || "http://localhost:3000",
+          url: process.env.REACT_APP_BASE_URL || window.location.origin,
         },
         datePublished: post.createdAt,
         dateModified: post.updatedAt || post.createdAt,
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": `${
-            process.env.REACT_APP_BASE_URL || "http://localhost:3000"
+            process.env.REACT_APP_BASE_URL || window.location.origin
           }/post/${post.slug}`,
         },
         url: `${
-          process.env.REACT_APP_BASE_URL || "http://localhost:3000"
+          process.env.REACT_APP_BASE_URL || window.location.origin
         }/post/${post.slug}`,
         keywords: post.tags?.join(", ") || "",
         wordCount:

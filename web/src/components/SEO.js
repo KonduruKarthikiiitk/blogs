@@ -13,9 +13,15 @@ const SEO = ({
   modifiedTime = null,
   structuredData = null,
 }) => {
-  const fullTitle = title.includes("Blog Platform") ? title : `${title} | Blog Platform`;
-  const fullUrl = url ? `${process.env.REACT_APP_BASE_URL || "http://localhost:3000"}${url}` : process.env.REACT_APP_BASE_URL || "http://localhost:3000";
-  const fullImage = image.startsWith("http") ? image : `${process.env.REACT_APP_BASE_URL || "http://localhost:3000"}${image}`;
+  const fullTitle = title.includes("Blog Platform")
+    ? title
+    : `${title} | Blog Platform`;
+  const fullUrl = url
+    ? `${process.env.REACT_APP_BASE_URL || window.location.origin}${url}`
+    : process.env.REACT_APP_BASE_URL || window.location.origin;
+  const fullImage = image.startsWith("http")
+    ? image
+    : `${process.env.REACT_APP_BASE_URL || window.location.origin}${image}`;
 
   return (
     <Helmet>
@@ -44,8 +50,12 @@ const SEO = ({
       {type === "article" && (
         <>
           <meta property="article:author" content={author} />
-          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+          {publishedTime && (
+            <meta property="article:published_time" content={publishedTime} />
+          )}
+          {modifiedTime && (
+            <meta property="article:modified_time" content={modifiedTime} />
+          )}
         </>
       )}
 

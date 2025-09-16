@@ -102,9 +102,11 @@ app.use("*", (req, res) => {
 });
 
 // Start server only if not in Vercel environment
-if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
+if (!process.env.VERCEL) {
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+    console.log(`Access from mobile: http://192.168.0.25:${PORT}/api`);
   });
 }
 
