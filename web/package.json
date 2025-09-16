@@ -1,0 +1,65 @@
+{
+  "name": "blog-web",
+  "version": "1.0.0",
+  "description": "React web interface for blog platform",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@google/generative-ai": "^0.24.1",
+    "@mui/icons-material": "^5.14.5",
+    "@mui/material": "^5.14.5",
+    "@mui/x-date-pickers": "^6.10.1",
+    "@reduxjs/toolkit": "^2.9.0",
+    "axios": "^1.5.0",
+    "date-fns": "^2.30.0",
+    "framer-motion": "^10.16.1",
+    "quill": "^1.3.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
+    "react-hook-form": "^7.45.4",
+    "react-hot-toast": "^2.4.1",
+    "react-markdown": "^9.0.0",
+    "react-query": "^3.39.3",
+    "react-quill": "^2.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "5.0.1",
+    "rehype-highlight": "^6.0.0",
+    "remark-gfm": "^3.0.1",
+    "web-vitals": "^3.4.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@tailwindcss/postcss": "^4.1.13",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
+  }
+}

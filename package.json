@@ -1,0 +1,33 @@
+{
+  "name": "blog-platform",
+  "version": "1.0.0",
+  "description": "Full-stack blog platform with React frontend and Node.js backend",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd web && npm start",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd web && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../web && npm install",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "blog",
+    "react",
+    "nodejs",
+    "mongodb",
+    "vercel",
+    "fullstack"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
