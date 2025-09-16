@@ -10,7 +10,11 @@
     },
     {
       "src": "backend/server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["backend/**"],
+        "maxDuration": 30
+      }
     }
   ],
   "rewrites": [
@@ -22,5 +26,8 @@
       "source": "/(.*)",
       "destination": "/web/build/index.html"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
