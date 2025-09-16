@@ -5,16 +5,14 @@
       "src": "web/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "build",
+        "installCommand": "cd web && npm install",
+        "buildCommand": "cd web && npm run build"
       }
     },
     {
       "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["backend/**"],
-        "maxDuration": 30
-      }
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
@@ -26,8 +24,5 @@
       "source": "/(.*)",
       "destination": "/web/build/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
