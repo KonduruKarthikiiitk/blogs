@@ -12,7 +12,8 @@
       "src": "backend/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["backend/**"]
+        "includeFiles": ["backend/**"],
+        "maxDuration": 30
       }
     }
   ],
@@ -26,11 +27,6 @@
       "dest": "/web/build/$1"
     }
   ],
-  "functions": {
-    "backend/server.js": {
-      "maxDuration": 30
-    }
-  },
   "env": {
     "NODE_ENV": "production"
   },
