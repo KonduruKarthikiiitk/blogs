@@ -40,7 +40,7 @@ const Home = () => {
       search: searchQuery || undefined,
     };
     dispatch(fetchPosts(params));
-  }, [dispatch, page]);
+  }, [dispatch, page, searchQuery]);
 
   // Handle errors
   useEffect(() => {
@@ -151,7 +151,7 @@ const Home = () => {
                       {post.featuredImage ? (
                         <img
                           src={post.featuredImage}
-                          alt={`Featured image for ${post.title}`}
+                          alt={`Featured for ${post.title}`}
                           loading="lazy"
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                         />

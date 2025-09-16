@@ -299,7 +299,7 @@ const BlogPost = () => {
           >
             <img
               src={post.featuredImage}
-              alt={`Featured image for ${post.title}`}
+              alt={`Featured for ${post.title}`}
               loading="eager"
               style={{
                 width: "100%",
