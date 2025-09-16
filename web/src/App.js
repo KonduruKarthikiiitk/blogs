@@ -19,9 +19,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 // App Content Component (needs to be inside Provider)
 const AppContent = () => {
   const dispatch = useAppDispatch();
-  const { token, loading, isAuthenticated, userLoaded } = useAppSelector(
-    (state) => state.auth
-  );
+  const { token, loading, userLoaded } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
     // Only load user if we have a token and haven't loaded user yet

@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  Container,
-  Typography,
-  Box,
   Avatar,
   Button,
-  Grid,
   Card,
   CardContent,
   CardMedia,
   Chip,
   CircularProgress,
   Alert,
-  Divider,
 } from "@mui/material";
 import {
-  Person,
   Email,
   CalendarToday,
   Article,
@@ -34,9 +28,7 @@ const Profile = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { user: currentUser, isAuthenticated } = useAppSelector(
-    (state) => state.auth
-  );
+  const { user: currentUser } = useAppSelector((state) => state.auth);
   const {
     posts,
     loading: postsLoading,
@@ -84,7 +76,7 @@ const Profile = () => {
         : { limit: 50 };
       dispatch(fetchPosts(params));
     }
-  }, [dispatch, isLoading, profileUser?.id]);
+  }, [dispatch, isLoading, profileUser]);
 
   if (isLoading) {
     return (
