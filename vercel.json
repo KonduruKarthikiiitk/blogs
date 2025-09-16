@@ -1,38 +1,27 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "web/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
+    "version": 2,
+    "builds": [
+      {
+        "src": "web/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
+      },
+      {
+        "src": "backend/server.js",
+        "use": "@vercel/node"
       }
-    },
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["backend/**"],
-        "maxDuration": 30
+    ],
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "/backend/server.js"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/web"
       }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/web/build/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
+    ]
   }
-}
+  
