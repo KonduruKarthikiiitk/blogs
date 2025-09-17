@@ -4,6 +4,7 @@
   "description": "Full-stack blog platform with React frontend and Node.js backend",
   "scripts": {
     "build": "cd web && npm install && npm run build",
+    "start": "echo 'Static site - no start command needed'",
     "dev": "cd web && npm start",
     "install-all": "cd web && npm install"
   },

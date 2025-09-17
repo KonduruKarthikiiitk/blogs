@@ -7,6 +7,7 @@ services:
     staticPublishPath: web/build
     plan: free
     nodeVersion: 18
+    startCommand: echo "Static site deployed successfully"
     envVars:
       - key: REACT_APP_API_URL
         value: placeholder-api-url
