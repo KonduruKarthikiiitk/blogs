@@ -20,7 +20,8 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/web/build/index.html"
+      "destination": "/web"
     }
   ]
 }
+
