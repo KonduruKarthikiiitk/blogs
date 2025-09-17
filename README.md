@@ -43,10 +43,13 @@ This is a modern blog platform that allows users to create, edit, and manage blo
 
 **Deployment:**
 
-- Vercel (Frontend + Backend)
-- MongoDB Atlas (Database)
+- **Frontend**: Render (Static Site)
+- **Backend**: Render (Web Service) - [Backend Repository](https://github.com/KonduruKarthikiiitk/blogs-backend)
+- **Database**: MongoDB Atlas
 
 ## 📁 Project Structure
+
+### Frontend Repository (This Repository)
 
 ```
 blogs/
@@ -58,13 +61,22 @@ blogs/
 │   │   ├── store/         # Redux store
 │   │   └── utils/         # Utility functions
 │   └── package.json
-├── backend/               # Node.js backend
-│   ├── models/           # MongoDB models
-│   ├── routes/           # API routes
-│   ├── middleware/       # Custom middleware
-│   └── server.js         # Main server file
-├── vercel.json           # Vercel deployment config
+├── render.yaml            # Render deployment config
 └── package.json          # Root package.json
+```
+
+### Backend Repository
+
+**Repository**: [https://github.com/KonduruKarthikiiitk/blogs-backend](https://github.com/KonduruKarthikiiitk/blogs-backend)
+
+```
+blogs-backend/
+├── models/               # MongoDB models
+├── routes/               # API routes
+├── middleware/           # Custom middleware
+├── server.js             # Main server file
+├── render.yaml           # Backend deployment config
+└── package.json          # Backend dependencies
 ```
 
 ## 🚀 Quick Start
@@ -76,30 +88,48 @@ blogs/
 - MongoDB Atlas account
 - Google Gemini API key
 
-### 1. Clone the Repository
+### 1. Clone the Repositories
+
+**Frontend (This Repository):**
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/KonduruKarthikiiitk/blogs.git
 cd blogs
 ```
 
+**Backend:**
+
+```bash
+git clone https://github.com/KonduruKarthikiiitk/blogs-backend.git
+cd blogs-backend
+```
+
 ### 2. Install Dependencies
+
+**Frontend:**
 
 ```bash
 # Install root dependencies
 npm install
 
-# Install backend dependencies
-cd backend
-npm install
-
 # Install frontend dependencies
-cd ../web
+cd web
+npm install
+```
+
+**Backend:**
+
+```bash
+# Navigate to backend repository
+cd blogs-backend
+
+# Install backend dependencies
 npm install
 ```
 
 ### 3. Environment Setup
 
+**Backend Environment Variables:**
 Create a `.env` file in the backend directory:
 
 ```bash
@@ -111,21 +141,34 @@ GEMINI_API_KEY=your_gemini_api_key_here
 FRONTEND_URL=http://localhost:3000
 ```
 
-### 4. Start Development Servers
+**Frontend Environment Variables:**
+Create a `.env` file in the web directory:
 
 ```bash
-# Start both frontend and backend
+# Frontend Environment Variables
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 4. Start Development Servers
+
+**Start Backend:**
+
+```bash
+# Navigate to backend repository
+cd blogs-backend
 npm run dev
+# Backend will run on http://localhost:5000
+```
 
-# Or start them separately:
+**Start Frontend (in a new terminal):**
 
-# Backend (port 5000)
-cd backend
-npm run dev
-
-# Frontend (port 3000)
+```bash
+# Navigate to frontend repository
+cd blogs
 cd web
 npm start
+# Frontend will run on http://localhost:3000
 ```
 
 ### 5. Access the Application
@@ -136,26 +179,34 @@ npm start
 
 ## 🌐 Deployment
 
-### Deploy to Vercel
+### Deploy to Render
 
-1. **Install Vercel CLI**:
+#### Frontend Deployment
 
-   ```bash
-   npm install -g vercel
-   ```
+1. **Connect Repository to Render**:
 
-2. **Deploy**:
+   - Go to [Render Dashboard](https://dashboard.render.com)
+   - Click **"New +"** → **"Blueprint"**
+   - Connect your GitHub repository
+   - Select the `render.yaml` file
 
-   ```bash
-   vercel
-   ```
+2. **Set Environment Variables** in Render Dashboard:
+   - `REACT_APP_API_URL=https://blogs-backend-ktdg.onrender.com`
+   - `REACT_APP_GEMINI_API_KEY=your_gemini_api_key`
 
-3. **Set Environment Variables** in Vercel Dashboard:
+#### Backend Deployment
+
+1. **Deploy Backend**:
+
+   - Go to [Backend Repository](https://github.com/KonduruKarthikiiitk/blogs-backend)
+   - Follow the deployment instructions in the backend README
+
+2. **Set Environment Variables** in Render Dashboard:
    - `NODE_ENV=production`
    - `JWT_SECRET=your_production_jwt_secret`
    - `MONGODB_URI=your_mongodb_atlas_uri`
    - `GEMINI_API_KEY=your_gemini_api_key`
-   - `FRONTEND_URL=https://your-domain.vercel.app`
+   - `FRONTEND_URL=https://your-frontend-domain.onrender.com`
 
 ### Database Setup
 
@@ -166,6 +217,8 @@ npm start
 5. **Get connection string** and add to `MONGODB_URI`
 
 ## 📚 API Endpoints
+
+**Base URL**: `https://blogs-backend-ktdg.onrender.com`
 
 ### Authentication
 
@@ -187,6 +240,11 @@ npm start
 - `PUT /api/users/:id` - Update user profile
 - `GET /api/users/stats/overview` - Get user statistics
 
+### Health Check
+
+- `GET /api/health` - API health status
+- `GET /api/test` - Simple test endpoint
+
 ## 🤖 AI Features
 
 The platform integrates with Google's Gemini AI to provide:
@@ -195,7 +253,6 @@ The platform integrates with Google's Gemini AI to provide:
 - **Content Creation**: Generate full blog posts from topics and keywords
 - **Content Improvement**: Enhance existing content for better readability
 - **Content Outline**: Create structured outlines for your posts
-
 
 ## 🛡️ Security Features
 
@@ -214,10 +271,6 @@ The platform is fully responsive and works on:
 - Tablets
 - Mobile phones
 - All modern browsers
-
-
-
-
 
 ## 🤖 AI Development Process & Prompting Techniques
 
