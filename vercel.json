@@ -5,7 +5,7 @@
       "src": "web/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build",
+        "distDir": "web/build",
         "installCommand": "cd web && npm install",
         "buildCommand": "cd web && npm run build"
       }
@@ -19,10 +19,20 @@
     {
       "source": "/api/(.*)",
       "destination": "/backend/server.js"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/web/build/static/$1"
     },
     {
-      "source": "/(.*)",
-      "destination": "/web/build/index.html"
+      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))",
+      "dest": "/web/build/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/web/build/index.html"
     }
   ]
 }

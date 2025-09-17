@@ -90,6 +90,9 @@ app.use("*", (req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
+// Define PORT
+const PORT = process.env.PORT || 5000;
+
 // Start server only if not in Vercel environment
 if (!process.env.VERCEL) {
   app.listen(PORT, "0.0.0.0", () => {
