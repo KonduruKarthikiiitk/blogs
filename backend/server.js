@@ -119,5 +119,10 @@ if (!process.env.VERCEL) {
   console.log("MONGODB_URI available:", !!process.env.MONGODB_URI);
 }
 
+// Debug logging for Vercel
+console.log("Backend server loaded");
+console.log("JWT_SECRET available:", !!process.env.JWT_SECRET);
+console.log("MONGODB_URI available:", !!process.env.MONGODB_URI);
+
 // Export for Vercel
 module.exports = app;
