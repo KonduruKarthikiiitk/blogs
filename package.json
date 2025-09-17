@@ -1,15 +1,12 @@
 {
-  "name": "blog-platform",
+  "name": "blogs-frontend",
   "version": "1.0.0",
-  "description": "Full-stack blog platform with React frontend and Node.js backend",
+  "description": "React frontend for blog platform",
   "scripts": {
     "build": "cd web && npm install && npm run build",
-    "start": "echo 'Static site - no start command needed'",
+    "start": "cd web && npm start",
     "dev": "cd web && npm start",
-    "install-all": "cd web && npm install"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.0"
+    "install-deps": "cd web && npm install"
   },
   "engines": {
     "node": ">=18.0.0"

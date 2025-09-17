@@ -3,11 +3,10 @@ services:
   - type: web
     name: blogs-frontend
     env: static
-    buildCommand: cd web && npm install && npm run build
+    buildCommand: npm run build
     staticPublishPath: web/build
     plan: free
     nodeVersion: 18
-    startCommand: echo "Static site deployed successfully"
     envVars:
       - key: REACT_APP_API_URL
         value: placeholder-api-url
