@@ -196,35 +196,6 @@ The platform integrates with Google's Gemini AI to provide:
 - **Content Improvement**: Enhance existing content for better readability
 - **Content Outline**: Create structured outlines for your posts
 
-## 🔧 Development
-
-### Available Scripts
-
-```bash
-# Root level
-npm run dev          # Start both frontend and backend
-npm run build        # Build frontend for production
-npm run install:all  # Install all dependencies
-
-# Backend
-cd backend
-npm run dev          # Start with nodemon
-npm start            # Start production server
-
-# Frontend
-cd web
-npm start            # Start development server
-npm run build        # Build for production
-```
-
-### Code Structure
-
-- **Components**: Reusable UI components in `web/src/components/`
-- **Pages**: Main page components in `web/src/pages/`
-- **Services**: API calls and external services in `web/src/services/`
-- **Store**: Redux state management in `web/src/store/`
-- **Models**: Database models in `backend/models/`
-- **Routes**: API routes in `backend/routes/`
 
 ## 🛡️ Security Features
 
@@ -244,36 +215,9 @@ The platform is fully responsive and works on:
 - Mobile phones
 - All modern browsers
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
 
-## 📄 License
 
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-If you encounter any issues:
-
-1. Check the console for error messages
-2. Verify environment variables are set correctly
-3. Ensure MongoDB connection is working
-4. Check Vercel function logs for deployment issues
-
-## 🔗 Links
-
-- [Vercel Documentation](https://vercel.com/docs)
-- [MongoDB Atlas](https://www.mongodb.com/atlas)
-- [Google Gemini AI](https://ai.google.dev/)
-- [React Documentation](https://reactjs.org/docs)
-- [Node.js Documentation](https://nodejs.org/docs)
-
----
 
 ## 🤖 AI Development Process & Prompting Techniques
 
