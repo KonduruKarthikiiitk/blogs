@@ -2,11 +2,12 @@ services:
   # Frontend Web App
   - type: web
     name: blogs-frontend
-    env: static
+    env: node
     buildCommand: npm run build
-    staticPublishPath: web/build
+    startCommand: npm start
     plan: free
     nodeVersion: 18
+    publishPath: web/build
     envVars:
       - key: REACT_APP_API_URL
         value: placeholder-api-url
