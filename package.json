@@ -4,7 +4,6 @@
   "description": "React frontend for blog platform",
   "scripts": {
     "build": "cd web && npm install && npm run build",
-    "start": "cd web && npm start",
     "dev": "cd web && npm start",
     "install-deps": "cd web && npm install"
   },
