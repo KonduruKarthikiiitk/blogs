@@ -5,9 +5,7 @@
       "src": "web/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "web/build",
-        "installCommand": "cd web && npm install",
-        "buildCommand": "cd web && npm run build"
+        "distDir": "build"
       }
     },
     {
@@ -15,7 +13,6 @@
       "use": "@vercel/node"
     }
   ],
-  "outputDirectory": "web/build",
   "rewrites": [
     {
       "source": "/api/(.*)",
