@@ -15,6 +15,7 @@
       "use": "@vercel/node"
     }
   ],
+  "outputDirectory": "web/build",
   "rewrites": [
     {
       "source": "/api/(.*)",
