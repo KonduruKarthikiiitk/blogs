@@ -38,6 +38,9 @@ app.use(
   })
 );
 
+console.log("JWT_SECRET available:", !!process.env.JWT_SECRET);
+console.log("MONGODB_URI available:", !!process.env.MONGODB_URI);
+console.log("NODE_ENV:", process.env.NODE_ENV);
 // Body parsing middleware
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
