@@ -73,6 +73,19 @@ app.get("/api/health", (req, res) => {
     status: "OK",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
+    environment: process.env.NODE_ENV || "development",
+    hasJWTSecret: !!process.env.JWT_SECRET,
+    hasMongoURI: !!process.env.MONGODB_URI,
+  });
+});
+
+// Simple test endpoint
+app.get("/api/test", (req, res) => {
+  res.json({
+    message: "Backend is working!",
+    timestamp: new Date().toISOString(),
+    method: req.method,
+    url: req.url,
   });
 });
 
@@ -100,6 +113,10 @@ if (!process.env.VERCEL) {
     console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
     console.log(`Access from mobile: http://192.168.0.25:${PORT}/api`);
   });
+} else {
+  console.log("Running in Vercel environment");
+  console.log("JWT_SECRET available:", !!process.env.JWT_SECRET);
+  console.log("MONGODB_URI available:", !!process.env.MONGODB_URI);
 }
 
 // Export for Vercel
